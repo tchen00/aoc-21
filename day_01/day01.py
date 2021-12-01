@@ -9,13 +9,15 @@ for i in data:
     a.append(int(i[0]))
 
 def get_sum(a, window):
-    last, count = -1, -1
-    for i in range(0, len(a)-window+1):
+    prev, count = -1, 0
+    for i in range(1, len(a)-window+1):
         s = sum(a[i:i+window])
-        if s > last:
+        if s > prev:
             count += 1
-        last = s
+        prev = s
     return count
 
-print(get_sum(a, 1))
-print(get_sum(a, 3))
+print(get_sum(a, 1)) # solves first part
+print(get_sum(a, 3)) # solves second part
+
+# use cURL + inspect element to obtain data
